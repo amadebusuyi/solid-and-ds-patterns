@@ -1,0 +1,19 @@
+{
+  "name": "solid-and-ds-patterns",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/amadebusuyi/solid-and-ds-patterns.git",
+  "author": "Adebowale Adebusuyi <amadebusuyi@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "start": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

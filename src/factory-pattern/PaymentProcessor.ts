@@ -31,7 +31,7 @@ export abstract class PaymentProcessorCreator {
   abstract createProcessor(amount: number): PaymentProcessor;
 }
 
-// Concrete Creators
+// Concrete Creators (Factories)
 export class PaypalProcessorCreator extends PaymentProcessorCreator {
   createProcessor(amount: number): PaymentProcessor {
     return new PaypalProcessor(amount);
@@ -50,12 +50,12 @@ export class BankTransferProcessorCreator extends PaymentProcessorCreator {
   }
 }
 
-// Product (Interface/Abstract Class) - e.g. Vehicle
-// ConcreteProductA - e.g. Car
-// ConcreteProductB - e.g. Motorcycle
-// Creator (Interface/Abstract Class) - e.g. VehicleFactory
-// ConcreteCreatorA - e.g. CarFactory
-// ConcreteCreatorB - e.g. MotorcycleFactory
+// Product (Interface/Abstract Class)
+// ConcreteProductA
+// ConcreteProductB
+// Creator (Interface/Abstract Class)
+// ConcreteCreatorA
+// ConcreteCreatorB
 
 /**
 *****Factory Pattern Components******

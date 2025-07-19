@@ -1,11 +1,14 @@
-interface ICustomer {
+// Builder Pattern
+
+// Builder
+export interface ICustomer {
   firstName: string;
   lastName: string;
   email: string;
   phoneNumber: string;
 }
 
-interface ICustomerBuilder {
+export interface ICustomerBuilder {
   setFirstName(firstName: string): ICustomerBuilder;
   setLastName(lastName: string): ICustomerBuilder;
   setEmail(email: string): ICustomerBuilder;
@@ -13,6 +16,7 @@ interface ICustomerBuilder {
   build(): ICustomer;
 }
 
+// Product
 class Customer implements ICustomer {
   constructor(
     public firstName: string,
@@ -22,7 +26,9 @@ class Customer implements ICustomer {
   ) {}
 }
 
-class CustomerBuilder implements ICustomerBuilder {
+// Concrete Builder
+
+export class CustomerBuilder implements ICustomerBuilder {
   private firstName: string = "";
   private lastName: string = "";
   private email: string = "";
@@ -58,7 +64,8 @@ class CustomerBuilder implements ICustomerBuilder {
   }
 }
 
-class CustomerDirector {
+// Director
+export class CustomerDirector {
   constructor(private builder: ICustomerBuilder) {}
 
   public buildMinimalCustomer(
@@ -73,13 +80,3 @@ class CustomerDirector {
       .build();
   }
 }
-
-const customerBuilder: ICustomerBuilder = new CustomerBuilder();
-const customerDirector: CustomerDirector = new CustomerDirector(customerBuilder);
-const customer: ICustomer = customerDirector.buildMinimalCustomer(
-  "Adebowale",
-  "Adebusuyi",
-  "amadebusuyi@gmail.com"
-);
-
-console.log(customer);

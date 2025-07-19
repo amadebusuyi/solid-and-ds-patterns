@@ -1,9 +1,13 @@
+// This file implements the Factory Method Pattern for creating different payment processors
+
+// Product Interface / Abstract Class
 abstract class PaymentProcessor {
   constructor(public amount: number) {}
 
   abstract processPayment(): void;
 }
 
+// Concrete Payment Processors
 class PaypalProcessor extends PaymentProcessor {
   public processPayment(): void {
     console.log(`Process Paypal Payment: ${this.amount} `);
@@ -22,23 +26,52 @@ class BankTransferProcessor extends PaymentProcessor {
   }
 }
 
-class PaymentProcessorFactory {
-  public createProcessor(type: "paypal" | "stripe" | "bank", amount: number) {
-    switch (type) {
-      case "paypal":
-        return new PaypalProcessor(amount);
-      case "stripe":
-        return new StripeProcessor(amount);
-      case "bank":
-        return new BankTransferProcessor(amount);
-    }
+// Creator (Abstract class or interface)
+export abstract class PaymentProcessorCreator {
+  abstract createProcessor(amount: number): PaymentProcessor;
+}
+
+// Concrete Creators
+export class PaypalProcessorCreator extends PaymentProcessorCreator {
+  createProcessor(amount: number): PaymentProcessor {
+    return new PaypalProcessor(amount);
   }
 }
 
-const processorFactory = new PaymentProcessorFactory();
+export class StripeProcessorCreator extends PaymentProcessorCreator {
+  createProcessor(amount: number): PaymentProcessor {
+    return new StripeProcessor(amount);
+  }
+}
 
-const paypalPayment = processorFactory.createProcessor("paypal", 200);
-const stripPayment = processorFactory.createProcessor("stripe", 500);
+export class BankTransferProcessorCreator extends PaymentProcessorCreator {
+  createProcessor(amount: number): PaymentProcessor {
+    return new BankTransferProcessor(amount);
+  }
+}
 
-paypalPayment.processPayment();
-stripPayment.processPayment();
+// Product (Interface/Abstract Class) - e.g. Vehicle
+// ConcreteProductA - e.g. Car
+// ConcreteProductB - e.g. Motorcycle
+// Creator (Interface/Abstract Class) - e.g. VehicleFactory
+// ConcreteCreatorA - e.g. CarFactory
+// ConcreteCreatorB - e.g. MotorcycleFactory
+
+/**
+*****Factory Pattern Components******
+ * 1. Product - interface for objects created
+ * 2. ConcreteProductA
+ * 3. ConcreteProductB
+ * 4. Creator - declares factory method
+ * 5. ConcreteCreatorA
+ * 6. ConcreteCreatorB
+**/
+
+/**
+ *** use cases*****
+ * 1. Cross-platform UI elements
+ * 2. Database connection pooling
+ * 3. Document converters
+ * 4. Game enemy generation
+ * 5. Payment gateways
+**/

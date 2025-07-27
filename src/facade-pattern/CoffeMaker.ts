@@ -1,5 +1,5 @@
 export class Grinder {
-  public grindBeads(): void {
+  public grindBeans(): void {
     console.log("Grinding beans ...");
   }
 }
@@ -15,16 +15,22 @@ export class Brewer {
     console.log("Brewing Coffee ...");
   }
 }
-
 export class CoffeeMakerFacade {
+  protected grinder: Grinder;
+  protected boiler: Boiler;
+  protected brewer: Brewer;
   constructor(
-    private grinder: Grinder,
-    private boiler: Boiler,
-    private brewer: Brewer
-  ) {}
+    grinder?: Grinder,
+    boiler?: Boiler,
+    brewer?: Brewer,
+  ) {
+    this.grinder = grinder || new Grinder();
+    this.boiler = boiler || new Boiler();
+    this.brewer = brewer || new Brewer();
+  }
 
   public makeCoffee() {
-    this.grinder.grindBeads();
+    this.grinder.grindBeans();
     this.boiler.boilWater();
     this.brewer.brewCoffee();
     console.log("The Coffee is ready");
@@ -32,10 +38,8 @@ export class CoffeeMakerFacade {
 }
 
 // Facade - e.g. OrderProcessor
-// Subsystem Class 1 - e.g. InventoryService
-// Subsystem Class 2 - e.g. PaymentGateway
-// Subsystem Class 3 - e.g. ShippingService
-// Subsystem Class 4 - e.g. NotificationService
+// Subsystem Class 1
+// Subsystem Class 2
 // Client
 
 /**

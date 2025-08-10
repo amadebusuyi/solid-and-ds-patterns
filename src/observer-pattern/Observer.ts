@@ -11,6 +11,15 @@ export class ConcreteObserver implements Observer {
   }
 }
 
+export class ConcreteMailerObserver implements Observer {
+  constructor(private id: number) {}
+  public update(subject: Subject): void {
+    console.log(
+      `Mailer Observer ${this.id} updated, new state: ${subject.getState()}`
+    );
+  }
+}
+
 interface Subject {
   addObserver(observer: Observer): void;
   removeObserver(observer: Observer): void;

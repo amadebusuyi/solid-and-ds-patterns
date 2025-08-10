@@ -6,6 +6,9 @@ import { makeCoffee, watchMovie } from "./clients/facade/index.ts";
 import { adaptDatabase, adaptSquareToRectangle } from "./clients/adapter/index.ts";
 import { loadObserver, loadWeatherObserver } from "./clients/observer/index.ts";
 import { filterStrategy, paymentStrategy } from "./clients/strategy/index.ts";
+import { orderCoffee, serverRequest } from "./clients/decorator/index.ts";
+import { productFactory, triggerRenderUI } from "./clients/abstract-factory.ts/index.ts";
+import { triggerFileSystem, triggerRemote } from "./clients/command/index.ts";
 
 
 // Example Usage of Abstraction
@@ -69,6 +72,37 @@ console.log("Strategy Pattern Example:");
 console.log("---");
 console.log("Payment Strategy:");
 paymentStrategy();
+console.log('---');
 console.log("Filter Strategy:");
 filterStrategy();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Decorator Pattern
+console.log("Decorator Pattern Example:");
+console.log("---");
+console.log("Coffee Order:");
+orderCoffee();
+console.log('---');
+console.log("Server Request:");
+serverRequest();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Abstract Factory Pattern
+console.log("Abstract Factory Pattern Example:");
+console.log("---");
+console.log('Product Factory:')
+productFactory();
+console.log('---');
+console.log("Render UI:");
+triggerRenderUI();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Command Pattern
+console.log("Command Pattern Example:");
+console.log("---");
+console.log('Remote Control:');
+triggerRemote();
+console.log('---');
+console.log('File System Commands:');
+triggerFileSystem();
 console.log('----------------------------------------------------------\n');

@@ -9,6 +9,9 @@ import { filterStrategy, paymentStrategy } from "./clients/strategy/index.ts";
 import { orderCoffee, serverRequest } from "./clients/decorator/index.ts";
 import { productFactory, triggerRenderUI } from "./clients/abstract-factory.ts/index.ts";
 import { triggerFileSystem, triggerRemote } from "./clients/command/index.ts";
+import { loadDataParser, makeCakes } from "./clients/template/index.ts";
+import { triggerShapeProperties, triggerUserClone } from "./clients/prototype/index.ts";
+import { triggerMediaPlayers } from "./clients/bridge/index.ts";
 
 
 // Example Usage of Abstraction
@@ -105,4 +108,29 @@ triggerRemote();
 console.log('---');
 console.log('File System Commands:');
 triggerFileSystem();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Template Pattern
+console.log("Template Pattern Example:");
+console.log("---");
+console.log('Cake Maker:');
+makeCakes();
+console.log('---');
+console.log('Data Parser:');
+loadDataParser();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Prototype Pattern
+console.log("Prototype Pattern Example:");
+console.log("---");
+triggerUserClone();
+console.log('---');
+console.log('Shape Properties:');
+triggerShapeProperties();
+console.log('----------------------------------------------------------\n');
+
+// Example Usage of Bridge Pattern
+console.log("Bridge Pattern Example:");
+console.log("---");
+triggerMediaPlayers();
 console.log('----------------------------------------------------------\n');

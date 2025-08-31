@@ -11,7 +11,7 @@ import { productFactory, triggerRenderUI } from "./clients/abstract-factory.ts/i
 import { triggerFileSystem, triggerRemote } from "./clients/command/index.ts";
 import { loadDataParser, makeCakes } from "./clients/template/index.ts";
 import { triggerShapeProperties, triggerUserClone } from "./clients/prototype/index.ts";
-import { triggerMediaPlayers } from "./clients/bridge/index.ts";
+import { triggerDatabaseServices, triggerMediaPlayers } from "./clients/bridge/index.ts";
 
 
 // Example Usage of Abstraction
@@ -133,4 +133,6 @@ console.log('----------------------------------------------------------\n');
 console.log("Bridge Pattern Example:");
 console.log("---");
 triggerMediaPlayers();
+console.log("---");
+triggerDatabaseServices();
 console.log('----------------------------------------------------------\n');

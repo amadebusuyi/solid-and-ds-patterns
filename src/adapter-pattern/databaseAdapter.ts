@@ -1,4 +1,4 @@
-class MySQLDatabase {
+export class MySQLDatabase {
   public connectToMySQL(uri: string): void {
     console.log(`Connecting to MySQL at ${uri}`);
     // implementation
